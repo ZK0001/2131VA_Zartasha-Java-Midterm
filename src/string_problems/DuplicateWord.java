@@ -4,7 +4,7 @@ public class DuplicateWord {
 
     public static void main(String[] args) {
 
-        /*
+        /**
          Write a java program to find duplicate words and the number of occurrences of those words in the given string.
             Also, find the average length of all the words.
          */
