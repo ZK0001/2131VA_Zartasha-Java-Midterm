@@ -14,13 +14,9 @@ public interface Employee {
 	 */
 
     int employeeId();
-
     String employeeName();
-
     void assignDepartment();
-
     int calculateSalary();
-
     void benefits();
 
 }

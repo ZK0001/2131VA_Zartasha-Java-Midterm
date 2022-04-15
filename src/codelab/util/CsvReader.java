@@ -24,7 +24,35 @@ public class CsvReader {
         String csvSplitBy = ",";
         BufferedReader br;
         List<Student> roster = new ArrayList<>();
+        ArrayList<Integer> arrayList = new ArrayList<>();
 
+
+        try {
+            // reader object that parses through CSV file
+            br = new BufferedReader(new FileReader(csvFilePath));
+            int lineNumber = 0;
+            while ((row = br.readLine()) != null) {
+                // returns a Boolean value
+                if(lineNumber == 0) {
+                    lineNumber++;
+                    continue;
+                }
+                String[] rowArray = row.split(csvSplitBy);
+                // use comma as separator
+                arrayList.add(Integer.parseInt(rowArray[13])); // index 13 holds class scores
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        int sum = 0;
+        for(Integer i : arrayList) {
+            sum += i;
+        }
+
+        System.out.println("Average class score: " + (sum / arrayList.size()));
+
+        /* Example code:
         try {
             br = new BufferedReader(new FileReader(csvFilePath));
             int lineNumber = 0;
@@ -46,6 +74,8 @@ public class CsvReader {
         for (Student student : roster) {
             System.out.println(convertNumberOfProblemsSolved(student));
         }
+
+ */
     }
 
     private static String convertNumberOfProblemsSolved(Student student) {
