@@ -1,26 +1,29 @@
 package company_app_design;
-import java.util.Scanner;
-public abstract class EmployeeInfo extends EmployeeData{
 
-    /** INSTRUCTIONS
+import java.util.Scanner;
+
+public abstract class EmployeeInfo extends EmployeeData {
+
+    /**
+     * INSTRUCTIONS
      * This class should implement the Employee interface, but you must do that without using the keyword `implement`
      * anywhere in this class.
-     *
+     * <p>
      * HINT: Take a look at the collections framework diagram. Do you see how a class may implement an interface without
-     *       directly implementing it?
-     *
+     * directly implementing it?
+     * <p>
      * YOU MUST USE/DO:
-     *         OOP (Abstraction, Encapsulation, Inheritance and Polymorphism) concepts in every way possible
-     *         Use all kind of keywords (super, this, static, final, etc)
-     *         Implement nested class below (DateConversion)
-     *         Use Exception Handling
-     *
+     * OOP (Abstraction, Encapsulation, Inheritance and Polymorphism) concepts in every way possible
+     * Use all kind of keywords (super, this, static, final, etc)
+     * Implement nested class below (DateConversion)
+     * Use Exception Handling
+     * <p>
      * Once you're done with designing this EmployeeInfo class, go to the Company Employee class to test
      */
 
-    private String name;
-    private int employeeId;
-    private String employeePosition;
+    private final String name;
+    private final int employeeId;
+    private final String employeePosition;
     private String email;
     private String department;
     private boolean isFullTime;
@@ -28,7 +31,7 @@ public abstract class EmployeeInfo extends EmployeeData{
     private static int numOfEmployees;
     private String vacationTime;
 
-
+    private String setAddress;
 
     // Make sure to declare and use static, non-static & final fields
     static final String companyName = "Google";
@@ -45,7 +48,7 @@ public abstract class EmployeeInfo extends EmployeeData{
     }
 
     public EmployeeInfo(String name, int employeeId, String employeePosition, String email,
-                        String department, int salary){
+                        String department, int salary) {
 
         this(name, employeeId, employeePosition);
         this.email = email;
@@ -65,23 +68,23 @@ public abstract class EmployeeInfo extends EmployeeData{
     public static int calculateAnnualBonus(int salary, int performanceGrade) {
 
         int total = 0;
-        if(performanceGrade < 1 || performanceGrade > 5){
+        if (performanceGrade < 1 || performanceGrade > 5) {
             return -1;
         }
 
-        if(performanceGrade == 5){
+        if (performanceGrade == 5) {
 
             total = (int) (salary * .1);
 
-        } else if(performanceGrade == 4){
+        } else if (performanceGrade == 4) {
 
             total = (int) (salary * .08);
 
-        } else if(performanceGrade == 3){
+        } else if (performanceGrade == 3) {
 
             total = (int) (salary * .06);
 
-        } else if(performanceGrade == 2){
+        } else if (performanceGrade == 2) {
 
             total = (int) (salary * .04);
 
@@ -111,7 +114,7 @@ public abstract class EmployeeInfo extends EmployeeData{
         String[] joiningDateArray = convertedJoiningDate.split("/");
         String[] todaysDateArray = convertedTodaysDate.split("/");
 
-        if(Integer.parseInt(todaysDateArray[0]) >= Integer.parseInt(joiningDateArray[0])){
+        if (Integer.parseInt(todaysDateArray[0]) >= Integer.parseInt(joiningDateArray[0])) {
 
             yearsWithCompany = Integer.parseInt(todaysDateArray[1]) - Integer.parseInt(joiningDateArray[1]);
             System.out.println(yearsWithCompany);
@@ -130,7 +133,7 @@ public abstract class EmployeeInfo extends EmployeeData{
     }
 
     public String getEmail() {
-    return email;
+        return email;
     }
 
     public String getDepartment() {
@@ -142,6 +145,16 @@ public abstract class EmployeeInfo extends EmployeeData{
 
     public String employeeName() {
         return null;
+    }
+
+    @Override
+    public int setSalary() {
+        return salary;
+    }
+
+    @Override
+    public String setEmail() {
+        return email;
     }
 
 

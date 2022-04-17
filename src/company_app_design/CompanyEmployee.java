@@ -2,30 +2,63 @@ package company_app_design;
 
 public class CompanyEmployee {
 
-    /** INSTRUCTIONS
-     *  This class has a main method where you will be able to create instances of the EmployeeInfo class in order
-     *  to use attributes and methods.
-     *
-     *  Demonstrate as many methods as possible here. Feel free to show off what you've learned so far.
-     *
-     *  The goal of this application is to provide basic employee information services
-     *  Try to think like a Software Developer
+    /**
+     * INSTRUCTIONS
+     * This class has a main method where you will be able to create instances of the EmployeeInfo class in order
+     * to use attributes and methods.
+     * <p>
+     * Demonstrate as many methods as possible here. Feel free to show off what you've learned so far.
+     * <p>
+     * The goal of this application is to provide basic employee information services
+     * Try to think like a Software Developer
      */
     public static void main(String[] args) {
 
-        EmployeeInfo e1 = new EmployeeInfo("Michael Scott", 100, "VP", "mscott@dundermifflin.com", "Sales", 250_000)
-
-        {
+        EmployeeInfo e1 = new EmployeeInfo("Michael Scott", 100, "VP", "mscott@dundermifflin.com", "Sales", 250_000) {
 
             public int getNumberOfEmployees() {
                 return 25000;
             }
 
             @Override
+            public int setEmp_id() {
+                return employeeId();
+            }
+
+            @Override
+            public String setName() {
+                return null;
+            }
+
+            @Override
+            public void setDepartment() {
+
+            }
+
+            @Override
+            public int setSalary() {
+                return calculateSalary();
+            }
+
+            @Override
+            public String setAddress() {
+                return null;
+            }
+
+            @Override
+            public String setEmail() {
+                return null;
+            }
+
+            @Override
+            public int getSalary() {
+                return getSalary();
+            }
+
+            @Override
             public int employeeId() {
                 return 100;
             }
-
 
 
             @Override
@@ -37,6 +70,7 @@ public class CompanyEmployee {
             public String assignName(String employeeName) {
                 return employeeName();
             }
+
             @Override
             public String assignDepartment(String department) {
                 return department;
@@ -87,12 +121,7 @@ public class CompanyEmployee {
         System.out.println();
 
 
-
-
-
-
-
-
-    }}
+    }
+}
 
 

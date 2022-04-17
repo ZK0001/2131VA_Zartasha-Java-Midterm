@@ -253,7 +253,7 @@ public class SharedStepsDatabase {
         }
     }
 
-    public void insertQueue(String tableName, Queue<String> queue) {
+    public void insertQueue(String tableName, Queue<Integer> queue) {
         try {
             ps = connect.prepareStatement("DROP TABLE IF EXISTS " + tableName + ";");
             ps.executeUpdate();

@@ -21,7 +21,7 @@ public class CnnAPI {
      * Get your API Key from this website. Once you have your key, you can append your key to the end of the URL, as
      * shown below.
      *
-     *  https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=YOUR_API_KEY
+     *  https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=378fc78caf9340d796a5984734b826ca
      *
      * When you navigate to that full URL, you will be submitting a request, and the response should be CNN's
      * top headline news.
@@ -58,8 +58,8 @@ public class CnnAPI {
      */
 
     public static void main(String[] args) throws IOException, JSONException {
-        String apiKey = "";
-        String URL = "";
+        String apiKey = "378fc78caf9340d796a5984734b826ca";
+        String URL = "https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=378fc78caf9340d796a5984734b826ca";
 
         NewsData news = null;
         List<NewsData> newsDataList = new ArrayList<>();
@@ -97,15 +97,28 @@ public class CnnAPI {
             try {
                 JsonObject jsonobject = jsonArray.get(i).getAsJsonObject();
 
+                source = jsonobject.get("source").toString();
+                author = jsonobject.get("author").toString();
                 title = jsonobject.get("title").toString();
-                System.out.println("TITLE: " + title);
+                description = jsonobject.get("description").toString();
+                url = jsonobject.get("url").toString();
+                urlToImage = jsonobject.get("urlToImage").toString();
+                publishedAt = jsonobject.get("publishedAt").toString();
+                content = jsonobject.get("content").toString();
 
-                // Implement the remaining code, using the provided example within this try block
+                System.out.printf("SOURCE: %s\nAUTHOR: %s\nTITLE: %s\nDESCRIPTION: %s\nURL: %s\nURL TO IMAGE: %s\n" +
+                                "PUBLISHED AT: %s\nCONTENT: %s\n\n", source, author, title, description, url, urlToImage,
+                        publishedAt, content);
+
+                NewsData news2 = new NewsData(source, author, title, description, url, urlToImage, publishedAt, content);
+                newsDataList.add(news2);
+
 
             } catch (Exception ex) {
 
             }
         }
+
     }
 
     // Inner Class
@@ -119,4 +132,3 @@ public class CnnAPI {
     }
 
 }
-

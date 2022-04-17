@@ -8,8 +8,7 @@ public class UnitTestingEmployeeInfo {
 
     public static void main(String[] args) {
 
-        EmployeeInfo e1 = new EmployeeInfo("Justin", 250, "CEO", "JB@google.com", "Marketing", 150000)
-        {
+        EmployeeInfo e1 = new EmployeeInfo("Justin", 250, "CEO", "JB@google.com", "Marketing", 150000) {
 
             @Override
             public int NumberOfEmployees() {
@@ -57,6 +56,31 @@ public class UnitTestingEmployeeInfo {
                 return 250;
             }
 
+            @Override
+            public int setEmp_id() {
+                return 0;
+            }
+
+            @Override
+            public String setName() {
+                return null;
+            }
+
+            @Override
+            public void setDepartment() {
+
+            }
+
+            @Override
+            public String setAddress() {
+                return null;
+            }
+
+            @Override
+            public int getSalary() {
+                return 0;
+            }
+
 
         };
 
@@ -83,5 +107,6 @@ public class UnitTestingEmployeeInfo {
         e1.benefits();
         System.out.println();
 
-    }}
+    }
+}
 
